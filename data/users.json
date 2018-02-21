@@ -1,0 +1,12 @@
+[{
+  "id": -1,
+  "name": "",
+  "bio": "",
+  "email": "",
+  "password": "",
+  "reset_token": "",
+  "following": [],
+  "followers": [],
+  "created_at": "2018-02-02",
+  "updated_at": "2018-02-02"
+}]
