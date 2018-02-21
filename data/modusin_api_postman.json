@@ -1,0 +1,414 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Modusin API",
+		"_postman_id": "594304dc-f4a6-79ac-c31d-9aa9a3e209cc",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Development",
+			"description": "",
+			"item": [
+				{
+					"name": "get index",
+					"request": {
+						"url": "{{host}}:{{port}}/api",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "register account a",
+					"request": {
+						"url": "{{host}}:{{port}}/accounts/register",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Haidar",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "me@mhaidarhanif.com",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "register account b",
+					"request": {
+						"url": "{{host}}:{{port}}/accounts/register",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Hanif",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "email@mhaidarhanif.com",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "login account a",
+					"request": {
+						"url": "{{host}}:{{port}}/accounts/login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "me@mhaidarhanif.com",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "login account b",
+					"request": {
+						"url": "{{host}}:{{port}}/accounts/login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "email@mhaidarhanif.com",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"url": "{{host}}:{{port}}/accounts/logout",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "me@mhaidarhanif.com",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get accounts",
+					"request": {
+						"url": "{{host}}:{{port}}/accounts",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get posts",
+					"request": {
+						"url": "{{host}}:{{port}}/posts",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get post by id",
+					"request": {
+						"url": "{{host}}:{{port}}/posts/1",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get settings",
+					"request": {
+						"url": "localhost:3000/settings",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "post posts w/ account a (1)",
+					"request": {
+						"url": "{{host}}:{{port}}/posts",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "Hello universe!",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "Awesome universe to adventure on",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "post posts w/ account a (2)",
+					"request": {
+						"url": "{{host}}:{{port}}/posts",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "Super heroes!",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "Cool superheroes that we know",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "post posts w/ account b",
+					"request": {
+						"url": "{{host}}:{{port}}/posts",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token_b}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "Super power!",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "I got this super power before I was born",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Production",
+			"description": "",
+			"item": [
+				{
+					"name": "login account a in production",
+					"request": {
+						"url": "{{host}}:{{port}}/accounts/login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "me@mhaidarhanif.com",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

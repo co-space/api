@@ -1,0 +1,104 @@
+[
+  {
+    "id": -1,
+    "title": "",
+    "image_name": "",
+    "image_url": "",
+    "content": "",
+    "author": {
+      "name": "",
+      "bio": ""
+    },
+    "read_time": 10000,
+    "created_at": "2018-02-02",
+    "updated_at": "2018-02-02"
+  },
+
+  {
+    "id": 0,
+    "title": "Thinking Before Coding",
+    "image_name": "thinking-before-coding.jpg",
+    "image_url":
+      "https://www.ybrikman.com/assets/img/blog/learn-to-think/cat-learn-to-code.jpg",
+    "content":
+      "I think the answer has to be: Plan as much as you can, but not more than that. Few people would speak against the virtues of planning, but the debate mostly overlooks an important aspect. Planning only works as far as you have the skill to make a good plan, that skill tend to come with experience.",
+    "author": {
+      "name": "@mhaidarh",
+      "name": "M Haidar Hanif",
+      "bio": "Building better education throught technology."
+    },
+    "read_time": 20000,
+    "created_at": "2018-02-01",
+    "updated_at": "2018-02-01"
+  },
+
+  {
+    "id": 1,
+    "title": "The Artist and The Innovator",
+    "image_name": "the-artist-innovator.png",
+    "image_url":
+      "https://cdn-images-1.medium.com/max/1600/1*zJlIDT3eAdpwEkRyiTrnlg.png",
+    "content":
+      "Over the last nine years, I’ve had the opportunity to work with thousands of entrepreneurs from all over world which has given me some unique perspective that I’d like to share with you today. \nThe stereotype of the entrepreneur has changed. It’s no longer just two guys in a garage. Entrepreneurs come from all walks of life and transcend age, gender, and geography.\nWhile we may look different and speak different languages, we are still more similar than dissimilar. We all want the same things, fear the same things, and even make the same mistakes.\nAfter a while, I started building two archetypical personas of an entrepreneur in my mind — the artist and the innovator. I’ve found that every entrepreneur I’ve met falls into one of these two archetypes.",
+    "author": {
+      "name": "@ashmaurya",
+      "name": "Ash Maurya",
+      "bio":
+        "Author of Running Lean, Scaling Lean, and Creator of Lean Canvas - Helping Entrepreneurs Everywhere Succeed @LEANSTACK."
+    },
+    "read_time": 600000,
+    "created_at": "2018-02-12",
+    "updated_at": "2018-02-12"
+  },
+
+  {
+    "id": 2,
+    "title": "5 Leadership Changes Vital to Enterprise Innovation",
+    "image_name": "leadership-stage.jpg",
+    "image_url":
+      "https://cdn-images-1.medium.com/max/800/1*xapx-AYtwjbgt-GlCB0Yng.jpeg",
+    "content":
+      "Every new year brings optimism. In January, we declare our resolutions, even if they’re the same as last year’s. And, each year, large enterprise CEOs inspire employees with a call to action: “This is the year that we’re doing a big push to innovate.”\nIt’s a necessary first step to enterprise innovation, but that alone will not be an organization’s saving grace. If you want employees to innovate, they need to work differently, and it’s up to the leadership to create an environment that enables them to do so.",
+    "author": {
+      "name": "@brantcooper",
+      "name": "Brant Cooper",
+      "bio":
+        "NYT Bestselling author of The Lean Entrepreneur. Co-Founder of www.movestheneedle.com"
+    },
+    "read_time": 10000,
+    "created_at": "2018-02-10",
+    "updated_at": "2018-02-10"
+  },
+
+  {
+    "id": 3,
+    "title": "Branding is a relationship.",
+    "image_name": "branding-bike.png",
+    "image_url":
+      "https://cdn-images-1.medium.com/max/1000/1*JtYPiN3Ebc1rspRTOwqaEQ.png",
+    "content":
+      "I work for a startup. If there’s one consistent thing about a startup, it’s change. Roles pivot as often as the product does. Since I started eight months ago I’ve worked on everything from redesigning our logo to sales to product development. As our young company grows, the need to refine and clarify roles and responsibilities becomes more important every day (though as a startup we must be careful not to embolden ourselves to processes).\nRecently, I’ve started to work on Astronomer’s branding and marketing. As I considered this new charge, I wondered what the differences really are between branding, marketing and design. Is Astronomer’s logo and colors its brand? Is the Astronomer brand something different? Something more inclusive, perhaps? Are marketing and branding the same thing?",
+    "author": {
+      "name": "Chris Hendrixson",
+      "bio": "Designer and Entrepreneur from Cincinnati"
+    },
+    "read_time": 10000,
+    "created_at": "2018-02-02",
+    "updated_at": "2018-02-02"
+  },
+
+  {
+    "id": 4,
+    "title": "",
+    "image_name": "",
+    "image_url": "",
+    "content": "",
+    "author": {
+      "name": "",
+      "bio": ""
+    },
+    "read_time": 10000,
+    "created_at": "2018-02-02",
+    "updated_at": "2018-02-02"
+  }
+]
