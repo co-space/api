@@ -1,4 +1,4 @@
-# Modusin API & Data Specification
+# Co-space API & Data Specification
 
 Co-space provide all information you need about coworking spaces in indonesia.
 
