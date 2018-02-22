@@ -24,9 +24,9 @@ module.exports = {
   // GET /accounts/bypass
   getBypass: (req, res) => {
     Account.find({})
-      .populate({
-        path: "posts"
-      })
+      // .populate({
+      //   path: "posts"
+      // })
       .exec((err, accounts) => {
         res.send({
           data: accounts
@@ -186,5 +186,6 @@ module.exports = {
     res.send({
       message: `User with id: ${decoded.id} is logged out`
     })
-  }
+  },
+  
 }

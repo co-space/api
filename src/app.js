@@ -12,6 +12,8 @@ const index = require("./api")
 const accounts = require("./api/accounts")
 const posts = require("./api/posts")
 const settings = require("./api/settings")
+const coworking_spaces = require("./api/coworking_spaces")
+const bookings = require("./api/bookings")
 
 const mongoose = require("mongoose")
 
@@ -29,6 +31,9 @@ app.use("/api", index)
 app.use("/posts", posts)
 app.use("/accounts", accounts)
 app.use("/settings", settings)
+app.use("/coworking_spaces", coworking_spaces)
+app.use("/bookings", bookings)
+
 
 mongoose.Promise = global.Promise // native Node.js promise
 const MONGODB_URI = process.env.MONGODB_URI

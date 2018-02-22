@@ -45,36 +45,10 @@ const schema = new Schema(
       default: ""
     },
     // Profile
-    username: {
-      type: String,
-      default: ""
-    },
-    url: {
-      type: String,
-      default: "https://modusin.com"
-    },
     bio: {
       type: String,
       default: ""
-    },
-    followings: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Account"
-      }
-    ],
-    followers: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Account"
-      }
-    ],
-    posts: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Post"
-      }
-    ]
+    }
   },
   { timestamps: true }
 )
