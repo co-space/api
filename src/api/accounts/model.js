@@ -48,6 +48,10 @@ const schema = new Schema(
     bio: {
       type: String,
       default: ""
+    },
+    profile_picture: {
+      type: String,
+      default: "http://www.rt20.nl/wp-content/themes/rttheme15/images/no-profile.jpg"
     }
   },
   { timestamps: true }

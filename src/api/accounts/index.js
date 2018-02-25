@@ -10,7 +10,10 @@ router.put("/logout", helpers.isAuthenticated, controller.logout)
 
 router.get("/", helpers.isAuthenticated, controller.get)
 router.get("/bypass", controller.getBypass)
-router.get("/:id", helpers.isAuthenticated, controller.getById)
+router.get("/:id", controller.getById)
+
+router.get("/review_history/:id", controller.getReviewHistory)
+
 
 // router.delete("/", helpers.isAuthenticated, controller.delete)
 // router.delete("/:id", helpers.isAuthenticated, controller.deleteById)

@@ -187,5 +187,19 @@ module.exports = {
       message: `User with id: ${decoded.id} is logged out`
     })
   },
-  
+  // ---------------------------------------------------------------------------
+  // GET /accounts
+  getReviewHistory: (req, res) => {
+
+    Account.find({reviews: {$elemMatch: {_account: "5a8d300c4cf01a3ee36818a1"}}})
+      .populate({
+        path: "posts"
+      })
+      .exec((err, accounts) => {
+        res.send({
+          data: accounts
+        })
+      })
+  },
+
 }

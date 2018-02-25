@@ -41,7 +41,10 @@ const schema = new Schema({
         ref: "Account"
       },
       review: String,
-      post_date: Date
+      post_date: {
+        type: Date,
+        default: Date.now()
+      }
     }
   ],
   fb_link: {
@@ -57,8 +60,14 @@ const schema = new Schema({
     default: ""
   },
   location: {
-    province: String,
-    city: String
+    province: {
+      type: String,
+      default: "DKI Jakarta"
+    },
+    city: {
+      type: String,
+      default: "Jakarta Barat"
+    }
   },
   ratings: [
     {
