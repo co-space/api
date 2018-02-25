@@ -17,5 +17,6 @@ router.put("/:id", helpers.isAuthenticated, controller.putById)
 router.post("/add_review/:id", helpers.isAuthenticated, controller.addReviewById)
 router.post("/add_rating/:id", helpers.isAuthenticated, controller.addRatingById)
 
+router.get("/filterCity/:location", controller.filterByCity)
 
 module.exports = router

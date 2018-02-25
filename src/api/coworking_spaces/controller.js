@@ -173,4 +173,25 @@ module.exports = {
     })
   },
 
+  //---------------------------------------------------------------------------------------------//
+  //FILTER BY CITY  /coworking_spaces/filterCity/:location
+  filterByCity: (req, res) => {
+    var city = req.params.city;
+    Coworking_space.find({
+      city: city
+    }, (err, resource) => {
+      if (err) {
+        return res.status(500).json({message: 'Error when getting by city', error: err})
+      }
+      if (!resource) {
+        return res.status(404).json({message: 'No such list'});
+      }
+      res.json({params: req.params, data: resource})
+      // res.send({params: req.params, data: resource})
+    });
+  },
+
+  //FILTER BY MEMBER /coworking_space/filterMember/:
+
+
 }
