@@ -184,19 +184,20 @@ module.exports = {
             _account: account._id
           }
         }
-      }).populate("reviews._account").exec((err, coworking_spaces) => {
-        coworking_spaces = coworking_spaces.map((coworing_space, index) => {
-          return ({
-            coworking_space_name: coworing_space.name,
-            coworking_space_photo: coworing_space.photos[0],
-            coworking_space_city: coworing_space.location.city,
-            reviews : coworing_space.reviews
-          })
-        })
-        res.send({
-          param: req.params.id,
-          data: coworking_spaces})
+      }).populate("reviews._account").select({
+        name: 1,
+        location: 1
+      }).exec((err, coworking_spaces) => {
+        // coworking_spaces = coworking_spaces.map((coworing_space, index) => {
+        //   return ({
+        //     coworking_space_name: coworing_space.name,
+        //     coworking_space_photo: coworing_space.photos[0],
+        //     coworking_space_city: coworing_space.location.city,
+        //     reviews : coworing_space.reviews
+        //   })
+        // })
+        res.send({param: req.params.id, data: coworking_spaces})
       })
     })
-  },
+  }
 }
