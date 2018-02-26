@@ -161,6 +161,8 @@ module.exports = {
             message: "You are logged in",
             email: body.email,
             name: account.name,
+            profile_picture: account.profile_picture,
+            id: account.id,
             token: token
           })
         }

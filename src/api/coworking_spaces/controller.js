@@ -9,8 +9,11 @@ module.exports = {
   get: (req, res) => {
     // Find all resources
     Coworking_space.find({}).populate({path: "reviews._account"}).exec((error, resources) => {
-      if (error)
-        res.send(error)
+      if (error) res.send(error)
+      // reverse reviews array
+      resources.map((resource, index) => {
+        resource.reviews = resource.reviews.reverse()
+      })
       res.send({data: resources})
     })
   },
@@ -22,6 +25,9 @@ module.exports = {
     Coworking_space.findOne({
       id: Number(req.params.id)
     }).populate({path: "reviews._account"}).exec((err, resource) => {
+
+      resource.reviews = resource.reviews.reverse()
+
       res.send({params: req.params, data: resource})
     })
   },
@@ -178,7 +184,8 @@ module.exports = {
     Account.findOne({
       id: Number(req.params.id)
     }).exec((err, account) => {
-      if(err) return res.send(`error while getting account OID: ${err}`)
+      if (err)
+        return res.send(`error while getting account OID: ${err}`)
       Coworking_space.find({
         reviews: {
           $elemMatch: {
@@ -193,7 +200,7 @@ module.exports = {
           "updatedAt": 0,
           "email": 0
         }
-      }).select({name: 1, location: 1, photos: 1, 'reviews.review': 1,'reviews.post_date': 1}).exec((err, coworking_spaces) => {
+      }).select({name: 1, location: 1, photos: 1, 'reviews.review': 1, 'reviews.post_date': 1}).exec((err, coworking_spaces) => {
         res.send({param: req.params.id, data: coworking_spaces})
       })
     })
@@ -206,11 +213,9 @@ module.exports = {
     Account.findOne({
       id: Number(req.params.id)
     }).exec((err, account) => {
-      Coworking_space.find({
-            _account: account._id
-      }).select({name: 1, location: 1, photos: 1, id: 1}).exec((err, coworking_spaces) => {
+      Coworking_space.find({_account: account._id}).select({name: 1, location: 1, photos: 1, id: 1}).exec((err, coworking_spaces) => {
         res.send({param: req.params.id, data: coworking_spaces})
       })
     })
-  },
+  }
 }
