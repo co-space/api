@@ -175,23 +175,62 @@ module.exports = {
 
   //---------------------------------------------------------------------------------------------//
   //FILTER BY CITY  /coworking_spaces/filterCity/:location
-  filterByCity: (req, res) => {
-    var city = req.params.city;
-    Coworking_space.find({
-      city: city
-    }, (err, resource) => {
-      if (err) {
-        return res.status(500).json({message: 'Error when getting by city', error: err})
-      }
-      if (!resource) {
-        return res.status(404).json({message: 'No such list'});
-      }
-      res.json({params: req.params, data: resource})
-      // res.send({params: req.params, data: resource})
-    });
-  },
+  // filterByCity: (req, res) => {
+  //   var city = req.params.city;
+  //   Coworking_space.find({
+  //     city: city
+  //   }, (err, resource) => {
+  //     if (err) {
+  //       return res.status(500).json({message: 'Error when getting by city', error: err})
+  //     }
+  //     if (!resource) {
+  //       return res.status(404).json({message: 'No such list'});
+  //     }
+  //     res.json({params: req.params, data: resource})
+  //     // res.send({params: req.params, data: resource})
+  //   }).skip(2).limit(3);
+  // },
 
   //FILTER BY MEMBER /coworking_space/filterMember/:
+  // filterByCity: (req, res, next) => {
+  //   var city = req.params.city;
+  //   var perPage = 4;
+  //   var page = req.params.page || 1;
+  //   Coworking_space
+  //       .find({})
+  //       .skip((perPage * page) - perPage)
+  //       .limit(perPage)
+  //       .exec(function(err, resource) {
+  //           Coworking_space.count().exec(function(err, count) {
+  //               if (err) return next(err)
+  //               res.send({
+  //                   data: resource,
+  //                   current_page: page,
+  //                   pages: Math.ceil(count / perPage)
+  //               })
+  //           })
+  //       })
+  // }
+  // filterBy: (req, res, next) => {
+  //   var city = req.param('city');
+  //   var perPage = 4;
+  //   const page = (req.query.page > 0 ? req.query.page : 1) - 1;
+  //   Coworking_space
+  //       .find({city})
+  //       .skip((perPage * page) - perPage)
+  //       .limit(perPage)
+  //       .exec(function(err, resource) {
+  //           Coworking_space.count().exec(function(err, count) {
+  //               if (err) return next(err)
+  //               res.send({
+  //                   data: resource,
+  //                   current_page: page,
+  //                   pages: Math.ceil(count / perPage)
+  //               })
+  //           })
+  //       })
+  // }
+
 
 
 }
