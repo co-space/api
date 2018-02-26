@@ -37,29 +37,32 @@ module.exports = {
   post: (req, res) => {
     // Create resource object from resource
     const body = {
-      creator: req.decoded.sub, // subject _id from JWT
+      creator: req.decoded.sub,
+      id: req.decoded.id,
+      name: req.decoded.name, // subject _id from JWT
       title: req.body.title,
       content: req.body.content
     }
 
+    res.send(body)
     // Save into Posts
-    Post.create(body, (error, post) => {
-      // Save new post into selected Account
-      Account.findOneAndUpdate(
-        {_id: body.creator},
-        {
-          $push: {
-            posts: post._id
-          }
-        },
-        (error, account) => {
-          res.send({
-            message: "New post has been saved",
-            data: body
-          })
-        }
-      )
-    })
+    // Post.create(body, (error, post) => {
+    //   // Save new post into selected Account
+    //   Account.findOneAndUpdate(
+    //     {_id: body.creator},
+    //     {
+    //       $push: {
+    //         posts: post._id
+    //       }
+    //     },
+    //     (error, account) => {
+    //       res.send({
+    //         message: "New post has been saved",
+    //         data: body
+    //       })
+    //     }
+    //   )
+    // })
   },
 
   // ---------------------------------------------------------------------------

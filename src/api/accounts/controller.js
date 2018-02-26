@@ -105,6 +105,7 @@ module.exports = {
     // Find one account by email
     Account.findOne({email: body.email})
       .then((account) => {
+        console.log(account);
         const validPassword = bcrypt.compareSync(
           body.password,
           account.password
@@ -154,11 +155,12 @@ module.exports = {
 
           // (6) Set logged in status
           helpers.setLoggedIn(account, true)
-
+          // console.log(account.name
           // (7) Finally send that token
           res.send({
             message: "You are logged in",
             email: body.email,
+            name: account.name,
             token: token
           })
         }
@@ -189,12 +191,24 @@ module.exports = {
   },
   // ---------------------------------------------------------------------------
   // GET /accounts
-  getReviewHistory: (req, res) => {
+  // getReviewHistory: (req, res) => {
+  //
+  //   Account.find({reviews: {$elemMatch: {_account: "5a8d300c4cf01a3ee36818a1"}}})
+  //     .populate({
+  //       path: "posts"
+  //     })
+  //     .exec((err, accounts) => {
+  //       res.send({
+  //         data: accounts
+  //       })
+  //     })
+  // },
 
-    Account.find({reviews: {$elemMatch: {_account: "5a8d300c4cf01a3ee36818a1"}}})
-      .populate({
-        path: "posts"
-      })
+  // ---------------------------------------------------------------------------
+  // GET /accounts/get_user_detail
+  getUserDetail: (req, res) => {
+    // res.send(req.decoded.id)
+    Account.find({id: req.decoded.id})
       .exec((err, accounts) => {
         res.send({
           data: accounts

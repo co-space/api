@@ -8,7 +8,7 @@ module.exports = {
   // GET /coworking_spaces (HKL)
   get: (req, res) => {
     // Find all resources
-    Coworking_space.find({}).populate({path: "_account"}).exec((error, resources) => {
+    Coworking_space.find({}).populate({path: "reviews._account"}).exec((error, resources) => {
       if (error)
         res.send(error)
       res.send({data: resources})
@@ -21,7 +21,7 @@ module.exports = {
     // Find one resource
     Coworking_space.findOne({
       id: Number(req.params.id)
-    }).exec((err, resource) => {
+    }).populate({path: "reviews._account"}).exec((err, resource) => {
       res.send({params: req.params, data: resource})
     })
   },
@@ -172,12 +172,13 @@ module.exports = {
   },
 
   // ---------------------------------------------------------------------------
-  // GET /accounts
+  // GET /coworking_spaces/review_history/:id
   getReviewHistory: (req, res) => {
-
+    //require user id
     Account.findOne({
       id: Number(req.params.id)
     }).exec((err, account) => {
+      if(err) return res.send(`error while getting account OID: ${err}`)
       Coworking_space.find({
         reviews: {
           $elemMatch: {
@@ -190,12 +191,26 @@ module.exports = {
           "_id": 0,
           "createdAt": 0,
           "updatedAt": 0,
-          "email": 0,
-          "name": 0
+          "email": 0
         }
-      }).select({name: 1, location: 1, photos: 1}).exec((err, coworking_spaces) => {
+      }).select({name: 1, location: 1, photos: 1, 'reviews.review': 1,'reviews.post_date': 1}).exec((err, coworking_spaces) => {
         res.send({param: req.params.id, data: coworking_spaces})
       })
     })
-  }
+  },
+
+  // ---------------------------------------------------------------------------
+  // GET /coworking_spaces/get_cospace_by_user/:id
+  getCospacesByUser: (req, res) => {
+    //require user id
+    Account.findOne({
+      id: Number(req.params.id)
+    }).exec((err, account) => {
+      Coworking_space.find({
+            _account: account._id
+      }).select({name: 1, location: 1, photos: 1, id: 1}).exec((err, coworking_spaces) => {
+        res.send({param: req.params.id, data: coworking_spaces})
+      })
+    })
+  },
 }
