@@ -201,6 +201,10 @@ module.exports = {
           "email": 0
         }
       }).select({name: 1, location: 1, photos: 1, 'reviews.review': 1, 'reviews.post_date': 1}).exec((err, coworking_spaces) => {
+        coworking_spaces.map((coworking_space, index) => {
+          coworking_space.reviews = coworking_space.reviews.filter(review => review._account.id === Number(req.params.id))
+        })
+        // res.send(coworking_spaces)
         res.send({param: req.params.id, data: coworking_spaces})
       })
     })
@@ -213,9 +217,14 @@ module.exports = {
     Account.findOne({
       id: Number(req.params.id)
     }).exec((err, account) => {
-      Coworking_space.find({_account: account._id}).select({name: 1, location: 1, photos: 1, id: 1}).exec((err, coworking_spaces) => {
-        res.send({param: req.params.id, data: coworking_spaces})
-      })
+      if(account._id){
+        Coworking_space.find({_account: account._id}).select({name: 1, location: 1, photos: 1, id: 1}).exec((err, coworking_spaces) => {
+          res.send({param: req.params.id, data: coworking_spaces})
+        })
+      } else {
+        res.send({param: req.params.id, message: 'account not found'})
+      }
+
     })
   }
 }
