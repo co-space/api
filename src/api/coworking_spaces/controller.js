@@ -1,5 +1,6 @@
 const Account = require("../accounts/model")
 const Coworking_space = require("./model")
+const _ = require("lodash")
 
 const helpers = require("../../helpers")
 
@@ -25,8 +26,12 @@ module.exports = {
     Coworking_space.findOne({
       id: Number(req.params.id)
     }).populate({path: "reviews._account"}).exec((err, resource) => {
-
-      resource.reviews = resource.reviews.reverse()
+      // console.log(_.has(resource,"reviews"));
+      console.log(resource);
+      // if(_.has(resource,'reviews')){
+      //   resource.reviews = resource.reviews.reverse()
+      //
+      // }
 
       res.send({params: req.params, data: resource})
     })
@@ -57,7 +62,7 @@ module.exports = {
     }
 
     // Save into Coworking_space
-    Coworking_space.create(body, (error, post) => {
+    Coworking_space.create(body, (error, coworking_space) => {
       // Save new post into selected Account
       // Account.findOneAndUpdate(
       //   { _id: body.creator },
@@ -73,7 +78,7 @@ module.exports = {
       //     })
       //   }
       // )
-      res.send({message: "New post has been saved", data: body})
+      res.send({message: "New post has been saved", data: coworking_space})
     })
   },
 

@@ -1,8 +1,8 @@
 module.exports = {
   get: (req, res) => {
     res.send({
-      author: "M Haidar Hanif",
-      message: "Modusin API"
+      author: "Funtastic Team",
+      message: "Co-Space App"
     })
   }
 }
