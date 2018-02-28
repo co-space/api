@@ -7,14 +7,35 @@ const helpers = require("../../helpers")
 module.exports = {
   // ---------------------------------------------------------------------------
   // GET /coworking_spaces (HKL)
+  // var searchKey = ""
+  // if(req.body.city){
+  //   search ={
+  //
+  //   }
+  // }
+
   get: (req, res) => {
     // Find all resources
-    Coworking_space.find({}).populate({path: "reviews._account"}).exec((error, resources) => {
+    var searchKey ={}
+    var short_by = req.body.short_by || ""
+    if(req.body.city){
+      searchKey = {
+        'location.city': req.body.city
+      }
+    }
+
+    Coworking_space.find(searchKey).populate({path: "reviews._account"}).exec((error, resources) => {
       if (error) res.send(error)
       // reverse reviews array
       resources.map((resource, index) => {
         resource.reviews = resource.reviews.reverse()
+        resource.total_review = resource.reviews.length
       })
+
+      if(short_by === "most_reviewed"){
+        resources = _.orderBy(resources, ['total_review'],['desc']); // Use Lodash to sort array by 'name'
+      }
+
       res.send({data: resources})
     })
   },
@@ -58,7 +79,8 @@ module.exports = {
         city: req.body.city
       } || "",
       amenities: [req.body.amenities],
-      photos: [req.body.photo]
+      photos: [req.body.photo],
+      price: req.body.price
     }
 
     // Save into Coworking_space
