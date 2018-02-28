@@ -1,5 +1,4 @@
 /* coworking_space */
-
 const mongoose = require("mongoose")
 const sequence = require("mongoose-sequence")(mongoose)
 const Schema = mongoose.Schema
@@ -62,11 +61,25 @@ const schema = new Schema({
   location: {
     province: {
       type: String,
-      default: "DKI Jakarta"
+      default: ""
     },
     city: {
       type: String,
-      default: "Jakarta Barat"
+      default: ""
+    }
+  },
+  price: {
+    daily: {
+      type: String,
+      default: ""
+    },
+    weekly: {
+      type: String,
+      default: ""
+    },
+    monthly: {
+      type: String,
+      default: ""
     }
   },
   ratings: [
@@ -79,7 +92,8 @@ const schema = new Schema({
     }
   ],
   amenities: [String],
-  photos: [String]
+  photos: [String],
+  total_review: Number
 }, {timestamps: true})
 
 // -----------------------------------------------------------------------------
