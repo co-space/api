@@ -16,13 +16,20 @@ module.exports = {
 
   get: (req, res) => {
     // Find all resources
+    // res.send(typeof req.query.city)
+    // res.send(typeof req.query.most_reviewed)
+
     var searchKey ={}
-    var short_by = req.body.short_by || ""
-    if(req.body.city){
+    var short_by = ""
+    if(req.query.most_reviewed === "true"){
+      short_by = "most_reviewed"
+    }
+    if(req.query.city !== "" && req.query.city !== undefined ){
       searchKey = {
-        'location.city': req.body.city
+        'location.city': req.query.city
       }
     }
+    // console.log(searchKey);
 
     Coworking_space.find(searchKey).populate({path: "reviews._account"}).exec((error, resources) => {
       if (error) res.send(error)
